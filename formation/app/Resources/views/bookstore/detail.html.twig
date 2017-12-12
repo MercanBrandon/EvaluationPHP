@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="{{ url('bookstore' ) }}" class="nav-link"><i class="fas fa-home"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1>{{ results.categorie }}</h1>
+            </div>
+        </div>
+        {% for value in results.livres %}
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="thumbnail">
+                            <img src="{{ value.image }}" alt="cover" class="img-fluid" />
+                            <div class="caption">
+                                <h3>{{ value.titre }}</h3>
+                                <p>{{ value.auteur }}</p>
+                                <p><a href="{{ url('bookstore.book', { 'id' : value.id } ) }}" class="btn btn-primary">Details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

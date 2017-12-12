@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 class="h1">Formations</h1>
+    <table class="table">
+        <th>Formations</th>
+
+
+        {% for value in results %}
+            <tr>
+                <td>{{ value.course }}</td>
+                <td><a href="{{ url('courses.detail', {'slug' : value.slug}) }}">Plus d'info</a></td>
+            </tr>
+
+        {% endfor %}
+    </table>
+
+{% endblock %}

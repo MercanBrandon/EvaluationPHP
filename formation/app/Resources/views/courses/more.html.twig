@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 class="h1">Formations</h1>
+    <table class="table">
+        <th>Formations</th>
+
+{{ dump(results) }}
+
+            <tr>
+                <td>{{ results.Course }}</td>
+                <td>{% for module in results.modules %}
+                        <p>{{ module.name}}</p>
+                    {% endfor %}</td>
+                <td></td>
+            </tr>
+
+    </table>
+
+{% endblock %}
